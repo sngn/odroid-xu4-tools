@@ -1,0 +1,11 @@
+#!/bin/sh 
+
+if test $1 = "on"; then
+  #echo "Turning fan on"
+  /usr/bin/i2cset -y 1 0x60 0x05 0xf0
+elif test $1 = "off"; then
+  #echo "Turning fan off"
+  /usr/bin/i2cset -y 1 0x60 0x05 0xf5
+else
+  echo "Usage: $0 on|off"
+fi
